@@ -47,3 +47,57 @@ body {
       grid-template-columns: 1fr;
     }
   }
+  .gents {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .gents .btn {
+    background-color: #f5f5f5; /* light background to match white page */
+    color: black; /* black text */
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .gents ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* show directly below the button */
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .gents ul li {
+    padding: 8px 12px;
+  }
+  
+  .gents ul li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s ease;
+    font-size: 1.5rem;
+  }
+  
+  .gents ul li a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Show dropdown when hovering over .gents or its ul */
+  .gents:hover ul,
+  .gents ul:hover {
+    display: block;
+  }
+  

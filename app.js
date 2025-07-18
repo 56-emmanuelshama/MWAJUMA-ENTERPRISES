@@ -1,5 +1,4 @@
-// Dummy user database (replace with real backend or Firebase)
-let users = [];
+let users = JSON.parse(localStorage.getItem('users')) || [];
 
 const formTitle = document.getElementById('formTitle');
 const authForm = document.getElementById('authForm');
@@ -35,7 +34,7 @@ authForm.addEventListener('submit', (e) => {
     if (user) {
       message.style.color = 'green';
       message.innerText = 'Login successful! Redirecting...';
-      // ✅ Redirect after login
+      localStorage.setItem('currentUser', JSON.stringify(user));
       setTimeout(() => {
         window.location.href = 'page.html';
       }, 1000);
@@ -49,10 +48,12 @@ authForm.addEventListener('submit', (e) => {
       message.style.color = 'red';
       message.innerText = 'Email already registered.';
     } else {
-      users.push({ email, password });
+      const newUser = { email, password };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
       message.style.color = 'green';
       message.innerText = 'Registration successful! Redirecting...';
-      // ✅ Redirect after registration
       setTimeout(() => {
         window.location.href = 'page.html';
       }, 1000);
