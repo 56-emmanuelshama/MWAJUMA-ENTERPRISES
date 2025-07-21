@@ -57,6 +57,10 @@ authForm.addEventListener('submit', (e) => {
       setTimeout(() => {
         window.location.href = 'page.html';
       }, 1000);
+
+      message.textContent = "";
     }
   }
+
+  form.reset();
 });

@@ -192,4 +192,100 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  .buy-now {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background 0.3s;
+  }
   
+  .buy-now:hover {
+    background-color: #218838;
+  }
+  .buy-button {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background 0.3s;
+  }
+  
+  .buy-button:hover {
+    background-color: #218838;
+  }
+
+
+  .gal {
+    text-align: center;
+  }
+  .gal p{
+    font-size: 2rem;
+  }
+  .gal h1{
+    font-size: 3rem;
+  }
+
+  .btnlinks {
+    text-align: center;
+    background: linear-gradient(to right, green, red);
+
+    position: fixed;
+    z-index: 100;
+  }
+
+
+
+
+  .form-container {
+    width: 70%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    width: 100%;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }

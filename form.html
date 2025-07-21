@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="images.css">
+</head>
+<body>
+    
+
+    
+
+        <div class="form-container">
+          <h2>Order Clothing</h2>
+          <form>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+      
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+      
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="\d+"
+              maxlength="15"
+              placeholder="Enter numbers only"
+              required
+            />
+      
+            <label for="cloth-type">Cloth Type</label>
+            <input
+              type="text"
+              id="cloth-type"
+              name="cloth-type"
+              placeholder="e.g., T-shirt, Jacket"
+              required
+            />
+      
+            <label for="size">Size</label>
+            <select id="size" name="size" required>
+              <option value="" disabled selected>Select Size</option>
+              <option value="S">Small (S)</option>
+              <option value="M">Medium (M)</option>
+              <option value="L">Large (L)</option>
+              <option value="XL">Extra Large (XL)</option>
+            </select>
+      
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      
+    <script src="dress.js"></script>
+</body>
+</html>
