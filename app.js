@@ -1,5 +1,24 @@
-let users = JSON.parse(localStorage.getItem('users')) || [];
+// app.js (must be inside your project folder)
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyADKAao8WiC21vTXC17LC7MckfcRWwoEz0",
+  authDomain: "mwajuma-enterprise.firebaseapp.com",
+  projectId: "mwajuma-enterprise",
+  storageBucket: "mwajuma-enterprise.appspot.com",
+  messagingSenderId: "480535174328",
+  appId: "1:480535174328:web:d497591262c719cb36a84d",
+  measurementId: "G-5GFNF0S2JK"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+// DOM elements
 const formTitle = document.getElementById('formTitle');
 const authForm = document.getElementById('authForm');
 const toggleLink = document.getElementById('toggleLink');
@@ -9,6 +28,7 @@ const message = document.getElementById('message');
 
 let isLogin = true;
 
+// Toggle between login and register
 toggleLink.addEventListener('click', (e) => {
   e.preventDefault();
   isLogin = !isLogin;
@@ -24,43 +44,33 @@ toggleLink.addEventListener('click', (e) => {
   });
 });
 
-authForm.addEventListener('submit', (e) => {
+// Submit form (Login/Register)
+authForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();
 
-  if (isLogin) {
-    const user = users.find((u) => u.email === email && u.password === password);
-    if (user) {
+  message.style.color = 'black';
+  message.innerText = 'Processing...';
+
+  try {
+    if (isLogin) {
+      await signInWithEmailAndPassword(auth, email, password);
       message.style.color = 'green';
       message.innerText = 'Login successful! Redirecting...';
-      localStorage.setItem('currentUser', JSON.stringify(user));
       setTimeout(() => {
         window.location.href = 'page.html';
       }, 1000);
     } else {
-      message.style.color = 'red';
-      message.innerText = 'Invalid email or password.';
-    }
-  } else {
-    const exists = users.some((u) => u.email === email);
-    if (exists) {
-      message.style.color = 'red';
-      message.innerText = 'Email already registered.';
-    } else {
-      const newUser = { email, password };
-      users.push(newUser);
-      localStorage.setItem('users', JSON.stringify(users));
-      localStorage.setItem('currentUser', JSON.stringify(newUser));
+      await createUserWithEmailAndPassword(auth, email, password);
       message.style.color = 'green';
       message.innerText = 'Registration successful! Redirecting...';
       setTimeout(() => {
         window.location.href = 'page.html';
       }, 1000);
-
-      message.textContent = "";
     }
+  } catch (error) {
+    message.style.color = 'red';
+    message.innerText = error.message;
   }
-
-  form.reset();
 });
