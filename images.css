@@ -2,8 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f2f2f2, #e0eafc, #cfdef3);
-    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
   .tshirt-gallery {
@@ -13,7 +12,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
-    background: linear-gradient(to right, #e0eafc, #cfdef3); 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
     border-radius: 10px;
   }
   
@@ -56,7 +55,7 @@ body {
   }
   
   .gents .btn {
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: black; 
     padding: 10px 20px;
     border: 1px solid #ccc;
@@ -71,7 +70,7 @@ body {
     position: absolute;
     top: 100%; 
     left: 0;
-    background-color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     list-style: none;
     padding: 10px;
     margin: 0;
@@ -104,12 +103,11 @@ body {
   .item {
     text-align: center;
     width: 60%;
-    margin: 20px auto; /* Center the item horizontally */
-    padding: 20px;
+    margin: 20px auto; 
   
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content inside */
+    align-items: center;
     
     border-radius: 10px;
     background-color: #f9f9f9;
@@ -178,7 +176,7 @@ body {
     padding: 40px 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    background: linear-gradient(to right, #e0eafc, #cfdef3); 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
   .tshirt-gallery img {
@@ -224,7 +222,12 @@ body {
 
   .gal {
     text-align: center;
-  }
+    transform: translateY(50%);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+}
   .gal p{
     font-size: 2rem;
   }
@@ -234,7 +237,7 @@ body {
 
   .btnlinks {
     text-align: center;
-    background: linear-gradient(to right,  #6d83a0, #cfdef3);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: 3px 3px 5px;
     width: 100%;
     position: fixed;
@@ -315,3 +318,10 @@ body {
     border: 1px solid #ccc;
   }
   
+  .shama {
+ transform: translateY(3%);
+ -webkit-transform: translateY(3%);
+ -moz-transform: translateY(3%);
+ -ms-transform: translateY(3%);
+ -o-transform: translateY(3%);
+}

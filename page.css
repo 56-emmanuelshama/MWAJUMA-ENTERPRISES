@@ -8,20 +8,22 @@
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
   }
   
   a {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
   }
-  
 
   .header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #111827;
-    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #020202;
     z-index: 1000;
   }
   
@@ -70,7 +72,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -82,7 +84,7 @@
   }
   
   .welcome p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
   
 
@@ -121,7 +123,7 @@
     position: absolute;
     bottom: 30px;
     right: 30px;
-    background: #111827;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -149,7 +151,7 @@
   .card {
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 2rem;
     max-width: 350px;
     flex: 1 1 300px; 
@@ -158,22 +160,24 @@
   
 
   .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #6d7ecc 0%, hsl(270, 37%, 52%) 100%);
+    color: #f9fafb;
   }
 
   .card h1 {
     font-size: 2rem;
-    color: #111827;
+    color:#000000;
     margin-bottom: 1rem;
+    font-weight: bolder;
   }
   
 
   .card p, 
   .card li {
-    color: #4b5563; 
+    color: #000000; 
     line-height: 2;
     font-size: 1.5rem;
+    font-weight: 500;
   }
   
 
@@ -195,7 +199,7 @@
   }
   .btn {
     display: inline-block;
-    background-color: #007bff; /* Bootstrap blue */
+    background-color: #6d83a0; /* Bootstrap blue */
     color: #fff;
     padding: 12px 30px;
     font-size: 18px;
@@ -206,7 +210,7 @@
   }
   
   .btn:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #707db6 0%, hsl(270, 30%, 52%) 100%);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
   }
   
