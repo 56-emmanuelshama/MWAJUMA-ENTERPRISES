@@ -42,3 +42,29 @@ const phoneInput = document.getElementById("phone");
 phoneInput.addEventListener("input", function () {
   this.value = this.value.replace(/[^\d]/g, "");
 });
+ // Wait until the DOM is fully loaded
+ document.addEventListener("DOMContentLoaded", function () {
+  const decreaseBtn = document.getElementById("decreaseQty");
+  const increaseBtn = document.getElementById("increaseQty");
+  const quantityDisplay = document.getElementById("quantityDisplay");
+  const quantityInput = document.getElementById("quantity");
+
+  // Initial quantity
+  let quantity = parseInt(quantityInput.value);
+
+  // Increase quantity
+  increaseBtn.addEventListener("click", function () {
+    quantity++;
+    quantityDisplay.textContent = quantity;
+    quantityInput.value = quantity;
+  });
+
+  // Decrease quantity (but not less than 1)
+  decreaseBtn.addEventListener("click", function () {
+    if (quantity > 1) {
+      quantity--;
+      quantityDisplay.textContent = quantity;
+      quantityInput.value = quantity;
+    }
+  });
+});
