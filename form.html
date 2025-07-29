@@ -3,153 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MAKE YOU ORDER</title>
     <link rel="stylesheet" href="form.css">
 </head>
 <body>
-    
-    <!-- Welcome Background Messages -->
-    <div class="welcome-background">
-      <div class="welcome-text">Quality Fashion</div>
-      <div class="welcome-text">Custom Orders</div>
-      <div class="welcome-text">Mwajuma Style</div>
-  </div>
+    <div class="form-container">
+        <h2>📱 Order Form</h2>
+        <form id="orderForm">
+            <!-- Customer Information -->
+            <div class="form-group">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label>Your WhatsApp Number:</label>
+                <div class="phone-input">
+                    <select class="country-code" id="countryCode">
+                        <option value="+254">+254 (KE)</option>
+                        <option value="+1">+1 (US)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+91">+91 (IN)</option>
+                        <option value="+234">+234 (NG)</option>
+                    </select>
+                    <input type="tel" class="phone-number" id="phoneNumber" placeholder="712345678" required>
+                </div>
+            </div>
+            
+            <!-- Product Selection -->
+            <div class="form-group">
+                <label for="product">Select size:</label>
+                <select id="product" name="product" required>
+                    <option value="">Choose a product...</option>
+                    <option value="Smartphone - $299">S</option>
+                    <option value="Laptop - $799">M</option>
+                    <option value="Headphones - $99">XL</option>
+                    <option value="Tablet - $399">XXL</option>
+               
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            </div>
+            
+            <!-- Additional Services -->
+            <div class="form-group">
+                <label>Additional Services:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="warranty" name="services" value="Extended Warranty (+$50)">
+                        <label for="warranty">regional delivery</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="installation" name="services" value="Installation Service (+$30)">
+                        <label for="installation">Free Delivery</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="delivery" name="services" value="Express Delivery (+$20)">
+                        <label for="delivery">Express Delivery KSh 200</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Delivery Information -->
+            <div class="form-group">
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your full delivery address"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="specialInstructions">Special Instructions:</label>
+                <textarea id="specialInstructions" name="specialInstructions" rows="2" placeholder="Any special requests or notes..."></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">📱 Submit Order via WhatsApp</button>
+        </form>
+    </div>
 
-  <div class="order-container">
-      <div class="header">
-          <h1>Place Your Order</h1>
-          <p>Fill out the form below to place your custom clothing order with Mwajuma Enterprise</p>
-      </div>
-
-      <div class="success-message" id="successMessage">
-          🎉 Your order has been submitted successfully! We'll contact you soon.
-      </div>
-
-      <form id="orderForm">
-          <!-- Personal Information -->
-          <div class="form-row">
-              <div class="form-group">
-                  <label for="fullName">Full Name <span class="required">*</span></label>
-                  <input type="text" id="fullName" name="fullName" required>
-              </div>
-              <div class="form-group">
-                  <label for="email">Email Address <span class="required">*</span></label>
-                  <input type="email" id="email" name="email" required>
-              </div>
-          </div>
-
-          <div class="form-row">
-              <div class="form-group">
-                  <label for="phone">Phone Number <span class="required">*</span></label>
-                  <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required>
-              </div>
-              <div class="form-group">
-                  <label for="location">Current Location <span class="required">*</span></label>
-                  <input type="text" id="location" name="location" placeholder="e.g., Nairobi, Karen" required>
-              </div>
-          </div>
-
-          <!-- Clothing Details -->
-          <div class="form-group">
-              <label for="clothType">Cloth Type <span class="required">*</span></label>
-              <select id="clothType" name="clothType" required>
-                  <option value="">Select cloth type...</option>
-                  <option value="trouser">Trouser</option>
-                  <option value="shirt">Shirt</option>
-                  <option value="dress">Dress</option>
-                  <option value="blouse">Blouse</option>
-                  <option value="skirt">Skirt</option>
-                  <option value="jacket">Jacket</option>
-                  <option value="suit">Suit</option>
-                  <option value="traditional">Traditional Wear</option>
-                  <option value="other">Other</option>
-              </select>
-              <div class="cloth-icons">
-                  <span class="cloth-icon">👔 Professional</span>
-                  <span class="cloth-icon">👗 Casual</span>
-                  <span class="cloth-icon">🥻 Traditional</span>
-                  <span class="cloth-icon">👘 Custom</span>
-              </div>
-          </div>
-
-          <div class="form-row">
-              <div class="form-group">
-                  <label for="fabric">Preferred Fabric</label>
-                  <select id="fabric" name="fabric">
-                      <option value="">Select fabric...</option>
-                      <option value="cotton">Cotton</option>
-                      <option value="linen">Linen</option>
-                      <option value="silk">Silk</option>
-                      <option value="wool">Wool</option>
-                      <option value="polyester">Polyester</option>
-                      <option value="denim">Denim</option>
-                      <option value="khanga">Khanga</option>
-                      <option value="kitenge">Kitenge</option>
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="color">Preferred Color</label>
-                  <input type="text" id="color" name="color" placeholder="e.g., Navy Blue, Red">
-              </div>
-          </div>
-
-          <!-- Size Selection -->
-          <div class="form-group">
-              <label>Size <span class="required">*</span></label>
-              <div class="size-options">
-                  <div class="size-option">
-                      <input type="radio" id="sizeXS" name="size" value="XS" required>
-                      <label for="sizeXS">XS</label>
-                  </div>
-                  <div class="size-option">
-                      <input type="radio" id="sizeS" name="size" value="S" required>
-                      <label for="sizeS">S</label>
-                  </div>
-                  <div class="size-option">
-                      <input type="radio" id="sizeM" name="size" value="M" required>
-                      <label for="sizeM">M</label>
-                  </div>
-                  <div class="size-option">
-                      <input type="radio" id="sizeL" name="size" value="L" required>
-                      <label for="sizeL">L</label>
-                  </div>
-                  <div class="size-option">
-                      <input type="radio" id="sizeXL" name="size" value="XL" required>
-                      <label for="sizeXL">XL</label>
-                  </div>
-                  <div class="size-option">
-                      <input type="radio" id="sizeXXL" name="size" value="XXL" required>
-                      <label for="sizeXXL">XXL</label>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Quantity -->
-          <div class="form-group">
-              <label>Quantity <span class="required">*</span></label>
-              <div class="quantity-controls">
-                  <button type="button" class="quantity-btn" id="decreaseQty">-</button>
-                  <span class="quantity-display" id="quantityDisplay">1</span>
-                  <button type="button" class="quantity-btn" id="increaseQty">+</button>
-              </div>
-              <input type="hidden" id="quantity" name="quantity" value="1" required>
-          </div>
-
-          <!-- Additional Details -->
-          <div class="form-group">
-              <label for="measurements">Custom Measurements (Optional)</label>
-              <textarea id="measurements" name="measurements" placeholder="Please provide any specific measurements (chest, waist, length, etc.)"></textarea>
-          </div>
-
-          <div class="form-group">
-              <label for="specialRequests">Special Requests or Notes</label>
-              <textarea id="specialRequests" name="specialRequests" placeholder="Any special designs, patterns, or additional requirements..."></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Submit Order</button>
-      </form>
-  </div>
-
-    <script src="dress.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-// app.js (must be inside your project folder)
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
 import {
@@ -7,6 +5,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+  getDatabase,
+  ref,
+  set
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";  // Add this
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -16,13 +20,16 @@ const firebaseConfig = {
   storageBucket: "mwajuma-enterprise.appspot.com",
   messagingSenderId: "480535174328",
   appId: "1:480535174328:web:d497591262c719cb36a84d",
-  measurementId: "G-5GFNF0S2JK"
+  measurementId: "G-5GFNF0S2JK",
+  databaseURL: "https://mwajuma-enterprise-default-rtdb.firebaseio.com"  // Add this
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const database = getDatabase(app); // Initialize database
+
+// Initialize Firebase
 
 // DOM elements
 const formTitle = document.getElementById("formTitle");
@@ -64,7 +71,7 @@ authForm.addEventListener("submit", async (e) => {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  message.style.color = "black";
+  message.style.color = "brown";
   message.innerText = "Processing...";
 
   try {
