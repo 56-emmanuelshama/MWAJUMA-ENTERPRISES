@@ -1,160 +1,335 @@
-
-*{
+/* Reset and Base Styles */
+* {
   margin: 0;
   padding: 0;
-
+  box-sizing: border-box;
 }
 
-
 body {
-  inset: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
   background: linear-gradient(135deg, 
-      hsla(0, 60%, 25%, 0.8), 
-      hsla(25, 45%, 40%, 0.6)
+      hsla(0, 56%, 26%, 0.8), 
+      hsla(25, 47%, 39%, 0.6)
   );
+  min-height: 100vh;
+}
+
+/* Main Container */
+.display {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
   
+}
+
+/* Welcome Header */
+.wel {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.wel h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Introduction Section */
+.introduction:first-of-type {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.introduction:first-of-type h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.introduction:first-of-type p {
+  font-size: 1.5rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Main Content Grid Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  margin-top: 30px;
+  align-items: stretch;
+}
+
+/* Cards in Grid Layout */
+.introduction:not(:first-of-type) {
+  width: 100%;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.card p {
+  color: #555;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Section in Grid */
+.forma {
+  width: 100%;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-box h1 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+#authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#authForm input {
+  padding: 15px 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+#authForm input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+#authForm input::placeholder {
+  color: #aaa;
+}
+
+#submitBtn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, 
+  hsla(0, 60%, 25%, 0.8), 
+  hsla(25, 45%, 40%, 0.6)
+);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+#toggleText {
+  margin-top: 25px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+#toggleLink {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#toggleLink:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+#message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Responsive Grid Design */
+@media (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
   }
   
-  .container {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
- 
+  .forma {
+    grid-column: 1 / -1; /* Form spans full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .forma {
+    grid-column: 1;
+  }
+  
+  .wel h1 {
+    font-size: 2rem;
+  }
+  
+  .introduction:first-of-type h1 {
+    font-size: 1.5rem;
+  }
+  
+  .introduction:first-of-type p {
+    font-size: 1rem;
+  }
+  
+  .card {
+    padding: 25px 20px;
   }
   
   .form-box {
-    background-color: #d4f0f7;
-margin: auto;
-    padding: 70px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 40%;
- 
-    margin-top: 170%;
-    gap: 35px;
-    box-shadow: 3px 3px 5px  hsl(192, 32%, 54%);
-  
+    padding: 30px 20px;
+    margin: 0 10px;
   }
   
   .form-box h1 {
-    margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: 1.6rem;
   }
-  
-  .form-box input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 20px 0;
-  }
-  
-  .form-box button {
-    width: 100%;
-    padding: 10px;
-    background: #258f25;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-  }
-  
-  .form-box button:hover {
-    background: hsl(133, 84%, 48%);
-  }
-  
-  #message {
-    margin-top: 10px;
-    color: red;
-  }
-  
-  #toggleText {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 1.3rem;
-  }
-  
-  #toggleText a {
-    color: #1b6814;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  .introduction {
-
-    color: #eeeeee;
-    text-align: center;
-    margin-top: 290px;
-   border: none;
-   background-color: #ffffff;
-   box-sizing: content-box;
-   padding: 20px;
-   box-shadow: 3px 3px 5px hsl(0, 1%, 52%);
-   max-width: 400px;
-   margin-left: 10%;
-  }
-  .introduction p {
-    
-      font-size: 1.5rem;
-      line-height: 1.6;
-      color:  #555;
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    
-       
-      text-align: center;
-      padding: 20px;
-     
-      border-radius: 10px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    
-    
-  }
-  .introduction h1{
-    color: #000000;
-    font-size: 2rem;
-  }
-  .introduction :hover{
- font-size: 1.5rem;
- background-color:hsl(0, 26%, 95%);
 }
- .container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-  }
+
+@media (max-width: 480px) {
   .display {
-  display: flex;
-  }
- 
-    
-  
-  
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px;
   }
   
-  .card h2 {
-    color: #333;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  .wel {
+    padding: 20px 15px;
   }
   
-  .card p {
-    color: #555;
+  .wel h1 {
     font-size: 2rem;
-    line-height: 1.6;
+    letter-spacing: 1px;
   }
   
-  .card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-top: 20px;
+  .introduction:first-of-type {
+    padding: 25px 20px;
   }
   
+  .card {
+    padding: 20px;
+  }
+  
+  .form-box {
+    padding: 25px 15px;
+  }
+}
+
+/* Additional Visual Enhancements */
+.introduction:first-of-type em {
+  color: #667eea;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.card em {
+  color: #764ba2;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wel,
+.introduction,
+.forma {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.introduction:nth-child(2) { animation-delay: 0.1s; }
+.introduction:nth-child(3) { animation-delay: 0.2s; }
+.introduction:nth-child(4) { animation-delay: 0.3s; }
+.forma { animation-delay: 0.4s; }
