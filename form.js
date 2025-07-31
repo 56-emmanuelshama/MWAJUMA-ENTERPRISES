@@ -88,3 +88,44 @@ document.querySelector('.submit-btn').addEventListener('click', function() {
 
 
 console.log(whatsappURL);
+
+function submitViaWhatsApp() {
+    const name = document.getElementById("customerName").value;
+    const email = document.getElementById("email").value;
+    const countryCode = document.getElementById("countryCode").value;
+    const phone = document.getElementById("phoneNumber").value;
+    const product = document.getElementById("product").value;
+    const quantity = document.getElementById("quantity").value;
+    const address = document.getElementById("address").value;
+    const instructions = document.getElementById("specialInstructions").value;
+
+    // Collect checked services
+    const services = [];
+    document.querySelectorAll('input[name="services"]:checked').forEach(el => {
+        services.push(el.nextElementSibling.textContent.trim());
+    });
+
+    // Simple validation
+    if (!name || !phone || !product || !quantity || !address) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Format the WhatsApp message
+    const message = `📦 *New Order Request*:\n
+👤 Name: ${name}
+📧 Email: ${email}
+📞 WhatsApp: ${countryCode}${phone}
+👕 Size: ${product}
+🔢 Quantity: ${quantity}
+🛠 Services: ${services.length > 0 ? services.join(', ') : 'None'}
+📍 Address: ${address}
+📝 Special Instructions: ${instructions || 'None'}`;
+
+    // Business WhatsApp number
+    const businessNumber = "254707761326";
+    const whatsappURL = `https://wa.me/${businessNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp chat
+    window.open(whatsappURL, '_blank');
+}

@@ -41,10 +41,10 @@
                 <label for="product">Select size:</label>
                 <select id="product" name="product" required>
                     <option value="">select size...</option>
-                    <option value="Smartphone - $299">S</option>
-                    <option value="Laptop - $799">M</option>
-                    <option value="Headphones - $99">XL</option>
-                    <option value="Tablet - $399">XXL</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
                
                 </select>
             </div>
@@ -85,7 +85,8 @@
             </div>
             
             <!-- Submit Button -->
-     <button type="submit" class="submit-btn" onclick="window.open ('tel: +254707761326' , '_self')" >📱 Submit Order via WhatsApp</button>
+            <button type="button" class="submit-btn" onclick="submitViaWhatsApp()">📱 Submit Order via WhatsApp</button>
+
         </form>
     </div>
 
