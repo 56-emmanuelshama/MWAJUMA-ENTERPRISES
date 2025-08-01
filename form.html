@@ -83,11 +83,17 @@
                 <label for="specialInstructions">Special Instructions:</label>
                 <textarea id="specialInstructions" name="specialInstructions" rows="2" placeholder="cloth type, cloth Name or notes..."></textarea>
             </div>
+            <input type="hidden" id="selectedProductImage" name="selectedProductImage">
+<input type="hidden" id="selectedProductPrice" name="selectedProductPrice">
+<input type="hidden" id="selectedProductSize" name="selectedProductSize">
+
             
             <!-- Submit Button -->
             <button type="button" class="submit-btn" onclick="submitViaWhatsApp()">📱 Submit Order via WhatsApp</button>
+
              
         </form>
+
     </div>
 
     <script src="form.js"></script>

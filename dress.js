@@ -1,6 +1,3 @@
-
-
-
 window.onload = function () {
   // Handle image click for fullscreen
   document.querySelectorAll('.item img').forEach(img => {
@@ -9,21 +6,34 @@ window.onload = function () {
     });
   });
 
-  // Redirect Buy Now buttons to form.html
+  // Redirect Buy Now buttons (inside .item) to form.html and save product info
   document.querySelectorAll('.buy-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.stopPropagation(); // prevents image fullscreen from triggering
+    button.addEventListener('click', function (e) {
+      e.stopPropagation(); // Prevent fullscreen opening
+
+      const item = this.closest('.item');
+      const image = item.querySelector('img').src;
+      const price = item.querySelector('.price').textContent.trim();
+      const size = item.querySelector('.size').textContent.trim();
+
+      // Save to localStorage
+      localStorage.setItem('selectedProductImage', image);
+      localStorage.setItem('selectedProductPrice', price);
+      localStorage.setItem('selectedProductSize', size);
+
+      // Redirect to the order form page
       window.location.href = 'form.html';
     });
   });
 
-    // Redirect Buy Now buttons to form.html
-    document.querySelectorAll('.buy-now').forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevents image fullscreen from triggering
-        window.location.href = 'form.html';
-      });
+  // Also handle .buy-now class (if present)
+  document.querySelectorAll('.buy-now').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.location.href = 'form.html';
     });
+  });
+
   // Function to open fullscreen overlay
   function openFullscreen(img) {
     const overlay = document.getElementById('fullscreenOverlay');
@@ -32,14 +42,14 @@ window.onload = function () {
     overlay.style.display = 'flex';
   }
 
-  // Optional: You can expose closeFullscreen globally if it's triggered from HTML
+  // Expose closeFullscreen globally
   window.closeFullscreen = function () {
     document.getElementById('fullscreenOverlay').style.display = 'none';
   };
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Phone input: allow digits only
+  // Allow only digits in phone number input (if present)
   const phoneInput = document.getElementById("phone");
   if (phoneInput) {
     phoneInput.addEventListener("input", function () {
@@ -47,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Quantity controls
+  // Quantity control buttons (if present)
   const decreaseBtn = document.getElementById("decreaseQty");
   const increaseBtn = document.getElementById("increaseQty");
   const quantityDisplay = document.getElementById("quantityDisplay");
