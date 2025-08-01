@@ -1,3 +1,4 @@
+// auth.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
 import {
@@ -6,13 +7,7 @@ import {
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-import {
-  getDatabase,
-  ref,
-  set
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";  // Add this
-
-// Your Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyADKAao8WiC21vTXC17LC7MckfcRWwoEz0",
   authDomain: "mwajuma-enterprise.firebaseapp.com",
@@ -20,77 +15,69 @@ const firebaseConfig = {
   storageBucket: "mwajuma-enterprise.appspot.com",
   messagingSenderId: "480535174328",
   appId: "1:480535174328:web:d497591262c719cb36a84d",
-  measurementId: "G-5GFNF0S2JK",
-  databaseURL: "https://mwajuma-enterprise-default-rtdb.firebaseio.com"  // Add this
+  measurementId: "G-5GFNF0S2JK"
 };
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const database = getDatabase(app); // Initialize database
 
-// Initialize Firebase
+document.addEventListener("DOMContentLoaded", () => {
+  const formTitle = document.getElementById("formTitle");
+  const authForm = document.getElementById("authForm");
+  const toggleText = document.getElementById("toggleText");
+  const submitBtn = document.getElementById("submitBtn");
+  const message = document.getElementById("message");
 
-// DOM elements
-const formTitle = document.getElementById("formTitle");
-const authForm = document.getElementById("authForm");
-const toggleLink = document.getElementById("toggleLink");
-const toggleText = document.getElementById("toggleText");
-const submitBtn = document.getElementById("submitBtn");
-const message = document.getElementById("message");
+  let isLogin = true;
 
-let isLogin = true;
+  function toggleFormMode() {
+    isLogin = !isLogin;
+    formTitle.innerText = isLogin ? "Login" : "Register";
+    submitBtn.innerText = isLogin ? "Login" : "Register";
+    toggleText.innerHTML = isLogin
+      ? `Don't have an account? <a href="#" id="toggleLink">Register here</a>`
+      : `Already have an account? <a href="#" id="toggleLink">Login here</a>`;
+    message.innerText = "";
 
-// Toggle between Login and Register
-function toggleFormMode() {
-  isLogin = !isLogin;
-  formTitle.innerText = isLogin ? "Login" : "Register";
-  submitBtn.innerText = isLogin ? "Login" : "Register";
-  toggleText.innerHTML = isLogin
-    ? `Don't have an account? <a href="#" id="toggleLink">Register here</a>`
-    : `Already have an account? <a href="#" id="toggleLink">Login here</a>`;
-  message.innerText = "";
+    const newToggleLink = document.getElementById("toggleLink");
+    newToggleLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleFormMode();
+    });
+  }
 
-  // Reattach event listener to new #toggleLink
-  const newToggleLink = document.getElementById("toggleLink");
-  newToggleLink.addEventListener("click", (e) => {
+  const initialToggleLink = document.getElementById("toggleLink");
+  initialToggleLink.addEventListener("click", (e) => {
     e.preventDefault();
     toggleFormMode();
   });
-}
 
-// Attach initial toggleLink listener
-toggleLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  toggleFormMode();
-});
+  authForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-// Handle form submission
-authForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
+    message.style.color = "brown";
+    message.innerText = "Processing...";
 
-  message.style.color = "brown";
-  message.innerText = "Processing...";
+    try {
+      if (isLogin) {
+        await signInWithEmailAndPassword(auth, email, password);
+        message.style.color = "green";
+        message.innerText = "Login successful! Redirecting...";
+      } else {
+        await createUserWithEmailAndPassword(auth, email, password);
+        message.style.color = "green";
+        message.innerText = "Registration successful! Redirecting...";
+      }
 
-  try {
-    if (isLogin) {
-      await signInWithEmailAndPassword(auth, email, password);
-      message.style.color = "green";
-      message.innerText = "Login successful! Redirecting...";
-    } else {
-      await createUserWithEmailAndPassword(auth, email, password);
-      message.style.color = "green";
-      message.innerText = "Registration successful! Redirecting...";
+      setTimeout(() => {
+        window.location.href = "page.html";
+      }, 1000);
+    } catch (error) {
+      message.style.color = "red";
+      message.innerText = error.message;
     }
-
-    // Redirect after short delay
-    setTimeout(() => {
-      window.location.href = "page.html";
-    }, 1000);
-  } catch (error) {
-    message.style.color = "red";
-    message.innerText = error.message;
-  }
+  });
 });

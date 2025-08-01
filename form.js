@@ -1,4 +1,4 @@
-const YOUR_WHATSAPP_NUMBER = "254707761326"; // Replace with your number (without + sign)
+const YOUR_WHATSAPP_NUMBER = "254707761326"; 
         
 document.getElementById('orderForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission
