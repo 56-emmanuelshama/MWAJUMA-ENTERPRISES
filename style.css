@@ -1,4 +1,5 @@
-/* Reset and Base Styles */
+/* Mwajuma Enterprise Fashion Website Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,251 +7,280 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background: linear-gradient(135deg, 
-      hsla(0, 56%, 26%, 0.8), 
-      hsla(25, 47%, 39%, 0.6)
-  );
+  background: linear-gradient(135deg, #f8f4f6 0%, #f0e8eb 100%);
+  color: #2d1b1f;
   min-height: 100vh;
 }
 
-/* Main Container */
+/* Main Display Container */
 .display {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
-  
 }
 
 /* Welcome Header */
 .wel {
+  background: linear-gradient(135deg, #6b2737 0%, #8b3a4a 100%);
+  color: #f8f4f6;
   text-align: center;
+  padding: 60px 20px;
   margin-bottom: 40px;
-  padding: 30px 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px -12px rgba(107, 39, 55, 0.3);
 }
 
 .wel h1 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: 2px;
-  font-weight: bold;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
 }
 
 /* Introduction Section */
+.introduction {
+  margin-bottom: 40px;
+}
+
 .introduction:first-of-type {
+  background: linear-gradient(135deg, #6b2737 0%, #8b3a4a 100%);
+  color: #f8f4f6;
+  padding: 60px 40px;
+  border-radius: 20px;
   text-align: center;
-  margin-bottom: 50px;
-  padding: 40px 30px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+  box-shadow: 0 16px 40px -12px rgba(107, 39, 55, 0.25);
 }
 
 .introduction:first-of-type h1 {
-  font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
 }
 
 .introduction:first-of-type p {
-  font-size: 1.5rem;
-  color: #555;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
   max-width: 800px;
   margin: 0 auto;
-  line-height: 1.8;
 }
 
-/* Main Content Grid Layout */
-.main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  width: 100%;
-  margin-top: 30px;
-  align-items: stretch;
-}
-
-/* Cards in Grid Layout */
-.introduction:not(:first-of-type) {
-  width: 100%;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+/* Cards Container - WELCOME TO heading */
+.introduction:nth-of-type(2)::before {
+  content: "WELCOME TO YOUR STYLE DESTINATION";
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
   text-align: center;
-  width: 100%;
+  color: #6b2737;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+/* Cards Layout - Flex Row */
+.introduction:nth-of-type(2),
+.introduction:nth-of-type(3) {
+  display: inline-block;
+  width: calc(50% - 20px);
+  margin: 0 10px 40px 10px;
+  vertical-align: top;
+}
+
+/* Card Styling */
+.card {
+  background: linear-gradient(180deg, #ffffff 0%, #faf7f8 100%);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 8px 32px -8px rgba(107, 39, 55, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px -12px rgba(107, 39, 55, 0.25);
 }
 
 .card h2 {
-  color: #2c3e50;
-  font-size: 2rem;
+  color: #6b2737;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .card p {
-  color: #555;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  color: #5a4a4f;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  flex-grow: 1;
 }
 
 .card img {
   width: 100%;
-  max-width: 300px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px -8px rgba(107, 39, 55, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Form Section in Grid */
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Form Section */
 .forma {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
 
 .form-box {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, #ffffff 0%, #faf7f8 100%);
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 16px 40px -12px rgba(107, 39, 55, 0.25);
+  overflow: hidden;
+  max-width: 400px;
   width: 100%;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .form-box h1 {
-  color: #2c3e50;
+  background: linear-gradient(135deg, #6b2737 0%, #8b3a4a 100%);
+  color: #f8f4f6;
   font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: bold;
+  font-weight: 700;
+  text-align: center;
+  padding: 30px;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-#authForm {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.form-box form {
+  padding: 40px;
 }
 
-#authForm input {
+.form-box input {
+  width: 100%;
   padding: 15px 20px;
-  border: 2px solid #ddd;
+  margin-bottom: 20px;
+  border: 2px solid #e8d6db;
   border-radius: 10px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-#authForm input:focus {
+  background: #ffffff;
+  transition: all 0.3s ease;
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
 }
 
-#authForm input::placeholder {
-  color: #aaa;
+.form-box input:focus {
+  border-color: #6b2737;
+  box-shadow: 0 0 0 3px rgba(107, 39, 55, 0.1);
+  transform: translateY(-2px);
 }
 
-#submitBtn {
-  padding: 15px 30px;
-  background: linear-gradient(135deg, 
-  hsla(0, 60%, 25%, 0.8), 
-  hsla(25, 45%, 40%, 0.6)
-);
-  color: white;
+.form-box input::placeholder {
+  color: #9d8a8f;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #6b2737 0%, #8b3a4a 100%);
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-#submitBtn:hover {
+.form-box button:hover {
+  background: linear-gradient(135deg, #8b3a4a 0%, #6b2737 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(107, 39, 55, 0.3);
 }
 
-#toggleText {
-  margin-top: 25px;
-  color: #666;
-  font-size: 0.95rem;
+.form-box p {
+  text-align: center;
+  margin-top: 20px;
+  color: #5a4a4f;
+  padding: 0 40px 40px 40px;
 }
 
-#toggleLink {
-  color: #667eea;
+.form-box a {
+  color: #6b2737;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
-#toggleLink:hover {
-  color: #764ba2;
+.form-box a:hover {
+  color: #8b3a4a;
   text-decoration: underline;
 }
 
-#message {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-/* Responsive Grid Design */
-@media (max-width: 1200px) {
-  .main-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-  
-  .forma {
-    grid-column: 1 / -1; /* Form spans full width */
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .main-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .wel h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
   }
   
-  .forma {
-    grid-column: 1;
+  .introduction:nth-of-type(2),
+  .introduction:nth-of-type(3) {
+    display: block;
+    width: 100%;
+    margin: 0 0 30px 0;
   }
   
+  .introduction:nth-of-type(2)::before {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    padding: 30px 20px;
+  }
+  
+  .card h2 {
+    font-size: 1.3rem;
+  }
+  
+  .display {
+    padding: 15px;
+  }
+  
+  .introduction:first-of-type {
+    padding: 40px 20px;
+  }
+  
+  .form-box {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
   .wel h1 {
     font-size: 2rem;
+    letter-spacing: 1px;
   }
   
   .introduction:first-of-type h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
   .introduction:first-of-type p {
@@ -258,60 +288,19 @@ body {
   }
   
   .card {
-    padding: 25px 20px;
-  }
-  
-  .form-box {
-    padding: 30px 20px;
-    margin: 0 10px;
-  }
-  
-  .form-box h1 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .display {
-    padding: 10px;
-  }
-  
-  .wel {
-    padding: 20px 15px;
-  }
-  
-  .wel h1 {
-    font-size: 2rem;
-    letter-spacing: 1px;
-  }
-  
-  .introduction:first-of-type {
-    padding: 25px 20px;
-  }
-  
-  .card {
-    padding: 20px;
-  }
-  
-  .form-box {
     padding: 25px 15px;
   }
+  
+  .form-box form {
+    padding: 30px 25px;
+  }
+  
+  .form-box p {
+    padding: 0 25px 30px 25px;
+  }
 }
 
-/* Additional Visual Enhancements */
-.introduction:first-of-type em {
-  color: #667eea;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.card em {
-  color: #764ba2;
-  font-style: italic;
-  font-weight: bold;
-}
-
-/* Animation for page load */
+/* Animation for smooth loading */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -325,11 +314,19 @@ body {
 
 .wel,
 .introduction,
-.forma {
-  animation: fadeInUp 0.6s ease-out;
+.card,
+.form-box {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.introduction:nth-child(2) { animation-delay: 0.1s; }
-.introduction:nth-child(3) { animation-delay: 0.2s; }
-.introduction:nth-child(4) { animation-delay: 0.3s; }
-.forma { animation-delay: 0.4s; }
+.introduction:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+
+.introduction:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+.forma {
+  animation-delay: 0.6s;
+}

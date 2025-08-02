@@ -1,22 +1,29 @@
 .fullscreen-background {
   width: 100%;
-  height: 50vh; /* Use viewport height for better responsiveness */
-  background-size: cover;
+  height: 50vh;
+  /*Useviewportheightforbetterresponsiveness*/background-size: cover;
   background-position: center;
+  align-items: center;
+  margin-left: 30%;
 }
 
 button {
   font-size: 2rem;
   background-color: black;
   color: aliceblue;
-  margin: 20px;
+  margin-left: 20%;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
 }
 
+.back{
+  text-align: center;
+  position: fixed;
+}
 button:hover {
   background-color: #333;
 }
