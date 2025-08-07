@@ -18,6 +18,16 @@ function submitViaWhatsApp() {
     const selectedImage = document.getElementById("selectedProductImage").value;
     const selectedPrice = document.getElementById("selectedProductPrice").value;
     const selectedSize = document.getElementById("selectedProductSize").value;
+    const now = new Date().toLocaleString('en-KE', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+  });
+
+  
 
     // Simple validation
     if (!name || !phone || !formSize || !quantity || !address || !selectedImage) {
@@ -45,8 +55,7 @@ Image: ${selectedImage}
 📍 *Delivery Address:* ${address}
 📝 *Instructions:* ${instructions || 'None'}
 
-⏰ *Order Time:* ${new Date().toLocaleString()}
-
+⏰ *Order Time:* ${now}
 🙏 Thank you!`;
 
     const businessNumber = "254707761326";
